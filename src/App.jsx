@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import s from './App.module.css';
-import Searchbar from './Components/Searchbar';
+import Searchbar from './Components/SearchBar';
 import ImageGallery from './Components/ImageGallery';
 import Loader from './Components/Loader';
 import ButtonLoadMore from './Components/Button/Button';
