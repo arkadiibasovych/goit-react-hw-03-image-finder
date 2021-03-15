@@ -11,7 +11,7 @@ const Searchbar = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (searchQuery === '') {
-      toast.error('Enter your request');
+      toast.error('Input is clear! Enter your request please');
       return;
     }
     onSubmit(searchQuery);
