@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const BASE_URL = 'https://pixabay.com/api/';
@@ -17,6 +18,11 @@ const fetchGalleryItems = ({ searchQuery, page }) => {
       params: { searchQuery, page },
     })
     .then(res => res.data.hits);
+};
+
+fetchGalleryItems.propTypes = {
+  searchQuery: PropTypes.string.isRequired,
+  page: PropTypes.number.isRequired,
 };
 
 export { fetchGalleryItems };
