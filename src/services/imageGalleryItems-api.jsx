@@ -1,12 +1,22 @@
 import axios from 'axios';
 
-const fetchGalleryItems = () => {
-  const key = '19957123-092fe89d59c01359f45ab382b';
-  return axios
-    .get(
-      `https://pixabay.com/api/?q=что_искать&page=номер_страницы&key=${key}&image_type=photo&orientation=horizontal&per_page=12`,
-    )
-    .then(response => response.data);
+const BASE_URL = 'https://pixabay.com/api';
+const API_KEY = '19957123-092fe89d59c01359f45ab382b';
+
+axios.defaults.baseURL = BASE_URL;
+axios.defaults.params = {
+  key: API_KEY,
+  image_type: 'photo',
+  orientation: 'horizontal',
+  per_page: 12,
 };
 
-export default { fetchGalleryItems };
+const fetchGalleryItems = ({ searchQuery, page }) => {
+  return axios
+    .get('', {
+      params: { searchQuery, page },
+    })
+    .then(res => res.data.hits);
+};
+
+export { fetchGalleryItems };
