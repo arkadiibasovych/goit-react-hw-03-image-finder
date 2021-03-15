@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { useEffect } from 'react';
 import s from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
 
-const ModalImage = ({ onClose, children }) => {
+const Modal = ({ onClose, children }) => {
   useEffect(() => {
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
@@ -28,4 +29,8 @@ const ModalImage = ({ onClose, children }) => {
   );
 };
 
-export default ModalImage;
+Modal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+};
+
+export default Modal;

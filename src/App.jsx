@@ -6,7 +6,7 @@ import Searchbar from './Components/SearchBar';
 import ImageGallery from './Components/ImageGallery';
 import Loader from './Components/Loader';
 import ButtonLoadMore from './Components/Button/Button';
-import ModalImage from './Components/Modal';
+import Modal from './Components/Modal';
 import { fetchGalleryItems } from './services/imageGalleryItems-api';
 
 const App = () => {
@@ -64,9 +64,9 @@ const App = () => {
       {images.length > 0 && <ButtonLoadMore onClick={handleClickNextPage} />}
 
       {largeImage && (
-        <ModalImage onClose={toggleModal}>
+        <Modal onClose={toggleModal}>
           <img src={largeImage} alt="modal" />
-        </ModalImage>
+        </Modal>
       )}
       <ToastContainer autoClose={1000} />
     </div>
